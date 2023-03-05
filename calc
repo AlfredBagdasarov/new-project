@@ -1,0 +1,33 @@
+while True:
+  operation = input('Выберите операцию (+, -, /, *): ')
+  if operation in '+-*/':
+    break
+  else:
+    print('\nОшибка: такой операции не существует. Попробуйте ещё раз.')
+
+number_count = int(input(f'Сколько операндов? '))
+result_str = ''
+for num in range(1, number_count + 1):
+  number = int(input(f'Введите операнд {num}: '))
+
+  if num == 1:
+    result = number
+  else:
+    if operation == '+':
+      result += number
+    elif operation == '-':
+      result -= number
+    elif operation == '*':
+      result *= number
+    elif operation == '/':
+      if number == 0:
+        print('На ноль делить нельзя')
+      else:
+        result /= number
+
+  if num != number_count:
+    result_str += str(number) + ' ' + operation + ' '
+  else:
+    result_str += str(number)
+
+print(result_str + ' =', result)
